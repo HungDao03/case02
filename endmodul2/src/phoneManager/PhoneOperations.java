@@ -5,11 +5,25 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-// thao tác đọc ghi sửa xóa
 public class PhoneOperations {
-    private static final String FILE_PATH = "data/mobiles.csv";
+    private static final String FILE_PATH = "endmodul2/Data/mobiles.csv";
     private static final Scanner scanner = new Scanner(System.in);
 
+    // Biến thể hiện duy nhất của lớp
+    private static PhoneOperations instance;
+
+    // Constructor private để ngăn không cho tạo đối tượng ngoài getInstance()
+    PhoneOperations() {}
+
+    // Phương thức để lấy thể hiện duy nhất của PhoneOperations
+    public static PhoneOperations getInstance() {
+        if (instance == null) {
+            instance = new PhoneOperations();
+        }
+        return instance;
+    }
+
+    // Phương thức để bắt đầu chương trình
     public void start() {
         while (true) {
             PhoneMenu.displayMenu();
@@ -37,7 +51,7 @@ public class PhoneOperations {
         }
     }
 
-    // tao id moi cho dien thoai dua tren id lon nhat
+    // Tạo ID mới cho điện thoại dựa trên ID lớn nhất hiện tại trong file
     public int getNextId() {
         int id = 1;
         try (BufferedReader reader = new BufferedReader(new FileReader(FILE_PATH))) {
@@ -52,7 +66,7 @@ public class PhoneOperations {
         return id;
     }
 
-    // ghi them dong moi vao file
+    // Ghi thêm một dòng mới vào file
     public void writeToFile(String phoneData) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_PATH, true))) {
             writer.write(phoneData);
@@ -63,7 +77,7 @@ public class PhoneOperations {
         }
     }
 
-    // doc tung noi dung và trả ra danh sách các dòng
+    // Đọc tất cả các dòng trong file và trả về danh sách các dòng
     public List<String> readPhones() {
         List<String> phones = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(FILE_PATH))) {
@@ -77,7 +91,7 @@ public class PhoneOperations {
         return phones;
     }
 
-    // ghi lại danh sách điện thoại vào file, dùng trong trường hợp cập nhật toàn bộ file sau khi xóa mục
+    // Ghi lại toàn bộ danh sách điện thoại vào file, dùng khi cập nhật dữ liệu
     public void writePhones(List<String> phones) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_PATH))) {
             for (String phone : phones) {

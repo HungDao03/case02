@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PhoneDeleter {
-    private static final String FILE_PATH = "data/mobiles.csv";
+    private static final String FILE_PATH = "mobiles.csv";
 
     // xóa dựa trên id
     public static void deletePhone() {

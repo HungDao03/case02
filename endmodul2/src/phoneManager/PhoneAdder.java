@@ -1,6 +1,7 @@
 package phoneManager;
 
 public class PhoneAdder {
+
     public static void addPhone() {
         System.out.print("Tên điện thoại: ");
         String name = PhoneMenu.getInput();  // Nhập tên điện thoại
@@ -125,4 +126,5 @@ public class PhoneAdder {
         new PhoneOperations().writeToFile(phoneData);
         System.out.println("Thêm thành công.");
     }
+
 }
