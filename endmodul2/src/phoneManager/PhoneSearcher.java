@@ -22,6 +22,7 @@ public class PhoneSearcher {
 
         System.out.println("Kết quả tìm kiếm:");
         for (String phoneData : phones) {
+            //regex
             String[] data = phoneData.split("\\s*,\\s*");  // Tách từng dòng theo dấu phẩy, loại bỏ khoảng trắng dư thừa
             if (data.length > 0) {
                 String id = data[0].trim();  // ID điện thoại là phần tử đầu tiên trong mảng dữ liệu

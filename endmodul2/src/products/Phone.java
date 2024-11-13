@@ -41,4 +41,5 @@ public abstract class Phone {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
+
 }

@@ -114,8 +114,4 @@ public class PhoneOperations {
             System.out.println("Lỗi khi ghi vào file: " + e.getMessage());
         }
     }
-
-
-
-
 }
