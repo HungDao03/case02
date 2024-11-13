@@ -12,7 +12,8 @@ public class PhoneMenu {
                 "2. Xóa điện thoại" + "\n" +
                 "3. Xem danh sách điện thoại" + "\n" +
                 "4. Tìm kiếm" + "\n" +
-                "5. Thoát" + "\n" +
+                "5. Sắp xếp theo giá tiền" + "\n" +  // Thêm lựa chọn sắp xếp
+                "6. Thoát" + "\n" +
                 "Chọn chức năng: ");
     }
 

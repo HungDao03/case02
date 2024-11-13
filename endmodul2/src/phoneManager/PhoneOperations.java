@@ -1,5 +1,7 @@
 package phoneManager;
 
+import products.Phone;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,9 +42,12 @@ public class PhoneOperations {
                     PhoneViewer.viewPhones();
                     break;
                 case 4:
-//                    PhoneSearcher.searchPhone();
+                    PhoneSearcher.searchPhone();
                     break;
                 case 5:
+                    PhoneSort.sortPhonesByPrice();  // Gọi phương thức sắp xếp
+                    break;
+                case 6:
                     System.out.println("Thoát chương trình.");
                     return;
                 default:
@@ -88,6 +93,13 @@ public class PhoneOperations {
         } catch (IOException e) {
             System.out.println("Lỗi khi đọc từ file: " + e.getMessage());
         }
+
+        // In ra danh sách điện thoại đọc từ file để kiểm tra
+        System.out.println("Danh sách điện thoại:");
+        for (String phone : phones) {
+            System.out.println(phone);
+        }
+
         return phones;
     }
 
@@ -102,4 +114,8 @@ public class PhoneOperations {
             System.out.println("Lỗi khi ghi vào file: " + e.getMessage());
         }
     }
+
+
+
+
 }
